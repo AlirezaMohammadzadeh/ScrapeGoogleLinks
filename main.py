@@ -9,7 +9,7 @@ import random
 app = Flask(__name__)
 api = Api(app)
 
-driver_path = r"C:\Users\Administrator\Desktop\Arvan\chromedriver-win64\chromedriver.exe" 
+driver_path = r"D:\chrome_driver\chromedriver.exe" 
 
 class ScrapeURL(Resource):
     def get(self,ProductName,SiteName):
@@ -22,7 +22,9 @@ class ScrapeURL(Resource):
             response = {"Url":Url}
             return response,200
         except Exception as e:
+            google_scrapper.stop_driver()
             return {"error":str(e)}, 500
+            
 
 api.add_resource(ScrapeURL,"/ScrapeUrl/<string:ProductName>/<string:SiteName>")
 

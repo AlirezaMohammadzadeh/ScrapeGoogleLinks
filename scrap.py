@@ -5,7 +5,9 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 from urllib.request import urlopen
 import requests
+from googletrans import Translator
 import json
+import convert_numbers
 import time
 import pandas as pd
 
@@ -13,14 +15,8 @@ import pandas as pd
 
 class WebScraper:
     def __init__(self, driver_path, options=None):
-        options = Options()
-        options.add_argument("--headless")
-        options.add_argument("--no-sandbox")
-        options.add_argument("start-maximized")
-        options.add_argument("disable-infobars")
-        options.add_argument("--disable-extensions")
         self.driver_path = driver_path
-        self.options = options 
+        self.options = options or Options 
         self.driver = None
 
     def start_driver(self):

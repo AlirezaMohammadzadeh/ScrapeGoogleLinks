@@ -8,7 +8,7 @@ class ScrapeGoogle(WebScraper):
         try:
             search = keyword.replace(' ', '+')
             url = (f"https://www.google.com/search?q={search}+{SiteName}")
-            data = self.scrape_data(url)                
+            data = self.scrape_data(url)           
             class_name = 'yuRUbf'
             elements = self.driver.find_elements_by_class_name(class_name)
             list_url = []   
