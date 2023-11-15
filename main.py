@@ -28,7 +28,7 @@ class ScrapeURL(Resource):
 
 api.add_resource(ScrapeURL,"/ScrapeUrl/<string:ProductName>/<string:SiteName>")
 
-if __name__ == "__main__":
-    app.run(debug = False)
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
  
 
